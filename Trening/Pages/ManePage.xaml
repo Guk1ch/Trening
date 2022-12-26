@@ -1,0 +1,47 @@
+﻿<Page x:Class="Trening.Pages.ManePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Trening.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ManePage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="tbSerch" Grid.Column="1" Grid.Row="0" SelectionChanged="tbSerch_SelectionChanged"/>
+        <Button x:Name="Busket" Content="Busket" Click="Busket_Click" Grid.Column="2" Grid.Row="0"/>
+        <Button x:Name="Exit" Content="Exit" Click="Exit_Click" Grid.Column="0" Grid.Row="0"/>
+        <ScrollViewer Grid.Column="1" Grid.Row="1">
+            <ListView x:Name="lvItem" ItemsSource="{Binding items}" SelectionChanged="lvItem_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Width="250">
+                            <TextBlock Text="{Binding Name}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="30"
+                                       TextWrapping="Wrap"/> 
+                            <TextBlock Text="{Binding MinPrice}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       FontSize="30"
+                                       TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
+
+    </Grid>
+</Page>
